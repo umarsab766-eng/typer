@@ -75,6 +75,7 @@ def SoftBtn(
         rounded: Literal['none', 'xs', 'sm', 'md', 'lg', 'xl', '2xl', 'full']|None = 'sm',
         justify: Literal['center', 'between', None] = 'center',
         text_clr: str = "",
+        return_btn: bool = False,
     ):
     colors = list(THEME_DEFAULT.keys())
     c = clr or "transparent"
@@ -90,12 +91,18 @@ def SoftBtn(
         f"select-none cursor-pointer {'ripple'*bool(ripple)} no-underline"
     )
     classes = f"{base_classes} {clas or ''}".strip()
+    b = {}
     with (ui.link("", link, new_tab) if link else Row()).classes(classes).props(props).style(styles) as btn:
         if icon:
-            ui.icon(icon, **icon_config).classes(f"text-[18px]")
+            icn = ui.icon(icon, **icon_config).classes(f"text-[18px]")
+            b['icon'] = icn
         if text:
-            ui.label(text)
+            lbl = ui.label(text)
+            b['lbl'] = lbl
     btn = btn.on('click', on_click)
+    b['cont'] = btn
+    if return_btn:
+        return b
     return btn
 
 def Input(
