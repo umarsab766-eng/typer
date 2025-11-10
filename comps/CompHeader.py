@@ -7,7 +7,6 @@ def CompHeader():
     with Header(clas="flex flex-row justify-between items-center") as header:
         Label(APP_NAME, "text-xl font-bold")
         with RawRow(clas="w-fit gap-2"):
-            SoftBtn('About', link=ABOUT)
             if isAuthenticated():
                 SoftBtn('Dashboard', link=DASHBOARD)
             else:

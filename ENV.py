@@ -2,7 +2,7 @@ import uuid, os
 
 # RUN OPTIONS
 FAVICON = "⌨️"
-APP_NAME = "Typer"
+APP_NAME = "Rehmani Typer"
 # HOST = '127.0.0.1'
 # PORT = int(os.environ.get("PORT", 8080))
 SECRET = str(uuid.uuid4().hex)
